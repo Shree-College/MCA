@@ -1,0 +1,61 @@
+A51 MACRO ASSEMBLER  ATHMATIC                                                             01/17/2024 14:41:53 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\ATHMATIC.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE ATHMATIC.a51 SET(SMALL) DEBUG PRINT(.\Listings\ATHMATIC.lst) OBJECT(.\O
+                      bjects\ATHMATIC.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+0000 7403              2             MOV A,#03
+0002 75F002            3             MOV B,#02
+0005 25F0              4             ADD A,B
+0007 F8                5             MOV R0,A
+0008 E4                6             CLR A
+                       7             
+                       8                     
+0009 7403              9             MOV A,#03
+000B 75F002           10             MOV B,#02
+000E 95F0             11             SUBB A,B
+0010 F9               12             MOV R1,A
+0011 E4               13             CLR A
+                      14             
+                      15             
+0012 7403             16             MOV A,#03
+0014 75F002           17             MOV B,#02
+0017 A4               18             MUL AB
+0018 FA               19             MOV R2,A
+0019 E4               20             CLR A
+                      21             
+                      22             
+001A 7403             23             MOV A,#03
+001C 75F002           24             MOV B,#02
+001F 84               25             DIV AB
+0020 FB               26             MOV R3,A
+0021 E4               27             CLR A
+                      28             
+                      29             
+0022 7403             30             MOV A,#03
+0024 75F002           31             MOV B,#02
+0027 84               32             DIV AB
+0028 ACF0             33             MOV R4,B
+002A E4               34             CLR A
+                      35             
+                      36     END
+A51 MACRO ASSEMBLER  ATHMATIC                                                             01/17/2024 14:41:53 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

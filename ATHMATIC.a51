@@ -1,0 +1,36 @@
+ORG 0000H
+	MOV A,#03
+	MOV B,#02
+	ADD A,B
+	MOV R0,A
+	CLR A
+	
+		
+	MOV A,#03
+	MOV B,#02
+	SUBB A,B
+	MOV R1,A
+	CLR A
+	
+	
+	MOV A,#03
+	MOV B,#02
+	MUL AB
+	MOV R2,A
+	CLR A
+	
+	
+	MOV A,#03
+	MOV B,#02
+	DIV AB
+	MOV R3,A
+	CLR A
+	
+	
+	MOV A,#03
+	MOV B,#02
+	DIV AB
+	MOV R4,B
+	CLR A
+	
+END
