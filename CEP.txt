@@ -1,0 +1,125 @@
+1]AMMOD_DEMOD
+clc;
+close all;
+clearvars;
+
+%Parameters
+Am=5;
+Ac=5;
+m=1;
+fm=10;
+fc=25*fm;
+F=1000;
+T=1/F;
+t=0:T:0.5;
+
+%msg & carrier signal
+x=Am*sin(2*pi*fm*t);
+y=Ac*sin(2*pi*fc*t);
+
+%modulated signal
+Xm=ammod(x,fc,F);
+
+
+subplot(4,1,1)
+plot(t,x)
+xlabel("Time",FontSize=10),ylabel("Msg Signal",FontSize=10)
+title("Message signal")
+
+subplot(4,1,2)
+plot(t,y)
+xlabel("Time",FontSize=10),ylabel("Carrier Signal",FontSize=10)
+title("Carrier signal")
+
+subplot(4,1,3)
+plot(t,Xm)
+xlabel("Time",FontSize=10),ylabel("Modulated Signal",FontSize=10)
+title("Modulated signal")
+
+%demodulation
+YM=amdemod(Xm,fc,F);
+subplot(4,1,4)
+plot(t,YM)
+xlabel("Time",FontSize=10),ylabel("Demodulated Signal",FontSize=10)
+title("Demodulated signal")
+
+
+2]FMMOD_Demod
+clc;
+close all;
+clearvars;
+
+%Parameters
+Am=5;
+Ac=5;
+m=1;
+fm=10;
+fc=25*fm;
+F=1000;
+T=1/F;
+t=0:T:0.5;
+b=5;
+
+%msg & carrier signal
+x=Am*sin(2*pi*fm*t);
+y=Ac*sin(2*pi*fc*t);
+
+%Fm modulated signal
+Fm=fmmod(x,fc,F,b);
+
+subplot(4,1,1)
+plot(t,x)
+xlabel("Time",FontSize=10),ylabel("Msg Signal",FontSize=10)
+title("Message signal")
+
+subplot(4,1,2)
+plot(t,y)
+xlabel("Time",FontSize=10),ylabel("Carrier Signal",FontSize=10)
+title("Carrier signal")
+
+subplot(4,1,3)
+plot(t,Fm)
+xlabel("Time",FontSize=10),ylabel("FModulated Signal",FontSize=10)
+title("FModulated signal")
+
+%demodulation
+YM=fmdemod(Fm,fc,F,b);
+subplot(4,1,4)
+plot(t,YM)
+xlabel("Time",FontSize=10),ylabel("FMDemodulated Signal",FontSize=10)
+title("FMDemodulated signal")
+
+3]PMMOD_DEMOD
+
+clc;
+clearvars;
+close all;
+
+F=8000;
+T=1/F;
+t=0:T:0.2;
+
+fc=100;
+fm=10;
+
+p=pi/2;
+
+mt=sin(2*pi*fm*t)+sin(4*pi*fm*t);
+
+X=pmmod(mt,fc,F,p);
+Y=pmdemod(X,fc,F,p);
+
+subplot(3,1,1)
+plot(t,mt,'b')
+grid on;
+title("Message Signal");
+
+subplot(3,1,2)
+plot(t,X,'r')
+grid on;
+title("Phase modulated Signal")
+
+subplot(3,1,3)
+plot(t,Y,'g')
+grid on;
+title("Phase demodulated Signal")
